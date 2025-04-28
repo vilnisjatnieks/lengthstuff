@@ -10,12 +10,26 @@ fun len_helper rsf [] = rsf
 
 fun len2 lst = len_helper 0 lst;
 
-(*          FOLD             *)
-fun fold [] base op = base
-  | fold (x::xs) base op = fold xs (op x base) op
+
+(*        FOLD         *)
+(* sources: class notes *)
+(* fix: swapped the order of base and next in the function signature *)
+fun fold [] next base = base
+  | fold (x::xs) next base = fold xs next (next x base)
   ;
 
 fun inc x y = y + 1;
+fun len3 lst = fold lst inc 0;
 
-fun len3 lst = fold lst 0 inc;
+
+
+
+
+
+
+
+
+
+
+
 
