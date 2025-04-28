@@ -58,36 +58,34 @@ Fold: 2
 
 
 ### ML
-Standard ML of New Jersey, Version 110.0.7, September 28, 2000 [CM; autoload enabled]
-- use "length.ml";
+
 [opening length.ml]
 val len = fn : 'a list -> int
 val len_helper = fn : int -> 'a list -> int
 val len2 = fn : 'a list -> int
-length.ml:14.5 Error: syntax error: inserting  LPAREN
-length.ml:16.3-18.4 Error: syntax error: deleting  SEMICOLON FUN
-GC #0.0.0.0.1.46:   (0 ms)
-length.ml:18.9 Error: syntax error: inserting  RPAREN
+val fold = fn : 'a list -> ('a -> 'b -> 'b) -> 'b -> 'b
+GC #0.0.0.0.1.21:   (0 ms)
+val inc = fn : 'a -> int -> int
+val len3 = fn : 'a list -> int
+val it = () : unit
 - len([]);
 val it = 0 : int
 - len2([]);
 val it = 0 : int
 - len3([]);
-stdIn:19.1-19.5 Error: unbound variable or constructor: len3
+val it = 0 : int
 - len([0]);
 val it = 1 : int
 - len2([0]);
 val it = 1 : int
 - len3([0]);
-stdIn:22.1-22.5 Error: unbound variable or constructor: len3
-- GC #0.0.0.0.2.72:   (0 ms)
-
+val it = 1 : int
 - len([0,1]);
 val it = 2 : int
 - len2([0,1]);
 val it = 2 : int
 - len3([0,1]);
-stdIn:25.1-25.5 Error: unbound variable or constructor: len3
+val it = 2 : int
 
 
 
@@ -142,16 +140,27 @@ Fold: 2
 - consult("length.pl").
 true.
 
-?- lengthrecursive.
+?- length_recursive([], X).
+X = 0.
+
+?- length_recursive([0], X).
+X = 1.
+
+?- length_recursive([0, 1], X).
+X = 2.
+
+?- length_tailrecursive([], X).
+X = 0.
+
+?- length_tailrecursive([0], X).
+X = 1.
+
+?- length_tailrecursive([0, 1], X).
+X = 2.
+
+?- fold().
 1 point pass
 true.
 
-?- lengthtailrecursive.
-1 point pass
-true.
-
-?- fold.
-1 point pass
-true.
 
 
