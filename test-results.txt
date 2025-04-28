@@ -1,0 +1,157 @@
+### Tests
+
+In: []
+Expected Out: 0
+Rationale: Test if the length function works on an empty list (base case)
+
+
+In: [0]
+Expect Out: 1
+Rationale: Test if the length function works on a list with one element (k)
+
+
+In: [0 1]
+Expected Out: 2
+Rationale: Test if the length function works on a list with two elements (k+1)
+
+
+### C
+vjatnieks@ginny:~/cs451/length$ ./length_in_C
+Test 1: Empty list []
+Expected: 0
+Recursive: 0
+Tail-recursive: 0
+Fold: 0
+
+Test 2: Single element [0]
+Expected: 1
+Recursive: 1
+Tail-recursive: 1
+Fold: 1
+
+Test 3: Two elements [0,1]
+Expected: 2
+Recursive: 2
+Tail-recursive: 2
+Fold: 2
+
+
+### Scheme
+> (len '())
+0
+> (len2 '())
+0
+> (len3 '())
+0
+> (len '(0))
+1
+> (len2 '(0))
+1
+> (len3 '(0))
+1
+> (len '(0 1))
+2
+> (len2 '(0 1))
+2
+> (len3 '(0 1))
+2
+
+
+### ML
+Standard ML of New Jersey, Version 110.0.7, September 28, 2000 [CM; autoload enabled]
+- use "length.ml";
+[opening length.ml]
+val len = fn : 'a list -> int
+val len_helper = fn : int -> 'a list -> int
+val len2 = fn : 'a list -> int
+length.ml:14.5 Error: syntax error: inserting  LPAREN
+length.ml:16.3-18.4 Error: syntax error: deleting  SEMICOLON FUN
+GC #0.0.0.0.1.46:   (0 ms)
+length.ml:18.9 Error: syntax error: inserting  RPAREN
+- len([]);
+val it = 0 : int
+- len2([]);
+val it = 0 : int
+- len3([]);
+stdIn:19.1-19.5 Error: unbound variable or constructor: len3
+- len([0]);
+val it = 1 : int
+- len2([0]);
+val it = 1 : int
+- len3([0]);
+stdIn:22.1-22.5 Error: unbound variable or constructor: len3
+- GC #0.0.0.0.2.72:   (0 ms)
+
+- len([0,1]);
+val it = 2 : int
+- len2([0,1]);
+val it = 2 : int
+- len3([0,1]);
+stdIn:25.1-25.5 Error: unbound variable or constructor: len3
+
+
+
+### Java
+Test 1 - empty list
+Length (Recursive): 0
+Length (Tail Recursive): 0
+Length (Fold): 0
+Test 2 - one element list
+Length (Recursive): 1
+Length (Tail Recursive): 1
+Length (Fold): 1
+Test 3 - two element list
+Length (Recursive): 2
+Length (Tail Recursive): 2
+Length (Fold): 2
+
+
+### Smalltalk
+Test 1 - empty list
+Length (Recursive): 0
+Length (Tail Recursive): 0
+Length (Fold): 0
+Test 2 - one element list
+Length (Recursive): 1
+Length (Tail Recursive): 1
+1 point skip
+Test 3 - two element list
+Length (Recursive): 2
+Length (Tail Recursive): 2
+1 point skip
+
+
+### TypeScript
+Test 1: Empty list []
+Recursive: 0
+Tail-recursive: 0
+Fold: 0
+
+Test 2: Single element [0]
+Recursive: 1
+Tail-recursive: 1
+Fold: 1
+
+Test 3: Two elements [0, 1]
+Recursive: 2
+Tail-recursive: 2
+Fold: 2
+
+
+### Prolog
+- consult("length.pl").
+true.
+
+?- lengthrecursive.
+1 point pass
+true.
+
+?- lengthtailrecursive.
+1 point pass
+true.
+
+?- fold.
+1 point pass
+true.
+
+
